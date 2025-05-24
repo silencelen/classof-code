@@ -276,25 +276,25 @@
     </div>
   </section>
   <section id="Keep-in-Touch">
-    <h2>Keep in touch with us,</h3>
-      <h3></br>Stay up to date on events and reunion plans </h3>
-      <form id="stay-form" action="submit.php" method="post">
-        <label>Name*:<br>
-          <input type="text" name="name" id="stay-name" placeholder="Your first and last name (maiden name)" required>
-        </label>
-        <label>Email:<br>
-          <input type="email" name="email" id="stay-email" placeholder="you@example.com">
-        </label>
-        <label>Phone:<br>
-          <input type="tel" name="phone" id="stay-phone" placeholder="(555)-123-4567" pattern="^[0-9\-\(\)]+$"
-            title="Numbers and dashes only">
-        </label>
-        <label>Mailing Address:<br>
-          <textarea name="address" id="stay-address" placeholder="Street, City, State, ZIP"></textarea>
-        </label>
-        <button type="submit" class="btn">Submit</button>
-      </form>
-      <p id="stay-message" style="display:none; margin-top:1rem; color: var(--primary-color); font-weight:bold;"></p>
+    <h2>Keep in touch with us,</h2>
+    <h3></br>Stay up to date on events and reunion plans </h3>
+    <form id="stay-form" action="submit.php" method="post" autocomplete="off">
+      <label>Name*:<br>
+        <input type="text" name="name" id="stay-name" placeholder="Your first and last name (maiden name)" required
+          maxlength="100">
+      </label>
+      <label>Email:<br>
+        <input type="email" name="email" id="stay-email" placeholder="you@example.com" maxlength="320">
+      </label>
+      <label>Phone:<br>
+        <input type="tel" name="phone" id="stay-phone" placeholder="(555)-123-4567" maxlength="30">
+      </label>
+      <label>Mailing Address:<br>
+        <textarea name="address" id="stay-address" placeholder="Street, City, State, ZIP" maxlength="500"></textarea>
+      </label>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <p id="stay-message" style="display:none; margin-top:1rem; color: var(--primary-color); font-weight:bold;"></p>
   </section>
 
   <section id="archives">
@@ -335,15 +335,49 @@
         document.getElementById('stay-form').scrollIntoView({ behavior: 'smooth' });
       }
     });
-    document.getElementById('stay-form').addEventListener('submit', (e) => {
+    document.getElementById('stay-form').addEventListener('submit', function (e) {
       const n = document.getElementById('stay-name').value.trim();
       const em = document.getElementById('stay-email').value.trim();
       const p = document.getElementById('stay-phone').value.trim();
       const a = document.getElementById('stay-address').value.trim();
-      if (!n) { alert('Please enter your name.'); e.preventDefault(); return; }
-      if (!em && !p && !a) { alert('Provide at least one contact method.'); e.preventDefault(); return; }
-      if (p && !/^[0-9\-\(\)]+$/.test(p)) { alert('Phone numbers only.'); e.preventDefault(); return; }
-      if (a && !/^[A-Za-z0-9 ,]+$/.test(a)) { alert('Address invalid.'); e.preventDefault(); return; }
+      if (!n) {
+        alert('Please enter your name.');
+        e.preventDefault();
+        return;
+      }
+      if (!em && !p && !a) {
+        alert('Provide at least one contact method.');
+        e.preventDefault();
+        return;
+      }
+      if (em && !/^[^@\s]+@[^@\s\.]+\.[^@\s\.]+$/.test(em)) {
+        alert('Please enter a valid email (example: you@example.com).');
+        e.preventDefault();
+        return;
+      }
+      if (p) {
+        const digits = p.replace(/\D/g, '');
+        if (digits.length !== 10) {
+          alert('Phone number must contain exactly 10 digits (e.g., (555) 123-4567 or 555-123-4567).');
+          e.preventDefault();
+          return;
+        }
+      }
+      if (a.length > 500) {
+        alert('Address must be 500 characters or fewer.');
+        e.preventDefault();
+        return;
+      }
+      if (n.length > 100) {
+        alert('Name must be 100 characters or fewer.');
+        e.preventDefault();
+        return;
+      }
+      if (em.length > 320) {
+        alert('Email must be 320 characters or fewer.');
+        e.preventDefault();
+        return;
+      }
     });
   </script>
 </body>
