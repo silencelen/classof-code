@@ -30,13 +30,12 @@ if ($phone) {
         header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/') . '?error=bad_phone');
         exit;
     }
-
     $phone = '(' . substr($digits, 0, 3) . ') ' . substr($digits, 3, 3) . '-' . substr($digits, 6);
 }
--
+
 $timestamp = date('Ymd_His');
 $safeName = preg_replace('/[^A-Za-z0-9]/', '_', $name);
-$safeName = substr($safeName, 0, 50);
+$safeName = substr($safeName, 0, 50); // Avoid very long filenames
 $filename = 'C:/secure/submissions/' . "{$safeName}_{$timestamp}.txt";
 
 $content  = "Name:    {$name}\n";
