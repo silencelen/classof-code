@@ -66,7 +66,11 @@ if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {
         die('cURL is NOT enabled in PHP');
     }
-    $data = ['email' => $email];
+
+    $data = [
+        'email' => $email,
+        'name' => $name
+    ];
     $ch = curl_init($powerAutomateUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
