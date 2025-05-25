@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 date_default_timezone_set('America/Los_Angeles');
 
@@ -13,22 +16,19 @@ if (strlen($phone) > 30)    $phone   = substr($phone, 0, 30);
 if (strlen($address) > 500) $address = substr($address, 0, 500);
 
 if (!$name || (!$email && !$phone && !$address)) {
-    header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/') . '?error=1');
-    exit;
+    die('Missing name or contact info.');
 }
 
 if ($email) {
     if (!preg_match('/^[^@\s]+@[^@\s\.]+\.[^@\s\.]+$/D', $email)) {
-        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/') . '?error=bad_email');
-        exit;
+        die('Bad email.');
     }
 }
 
 if ($phone) {
     $digits = preg_replace('/\D/', '', $phone);
     if (strlen($digits) !== 10) {
-        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/') . '?error=bad_phone');
-        exit;
+        die('Bad phone.');
     }
     $phone = '(' . substr($digits, 0, 3) . ') ' . substr($digits, 3, 3) . '-' . substr($digits, 6);
 }
@@ -40,7 +40,9 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 }
 
 if (!is_dir($submissionsDir)) {
-    @mkdir($submissionsDir, 0755, true);
+    if (!@mkdir($submissionsDir, 0755, true)) {
+        die("Could not create submissions directory");
+    }
 }
 
 $timestamp = date('Ymd_His');
@@ -54,7 +56,29 @@ $content .= "Phone:   {$phone}\n";
 $content .= "Address: {$address}\n";
 $content .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
 
-file_put_contents($filename, $content);
+if (!file_put_contents($filename, $content)) {
+    die("Could not write submission file");
+}
+
+$powerAutomateUrl = 'https://prod-169.westus.logic.azure.com:443/workflows/2ecf7b7537264329a1e160889e9331aa/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WNMu1gKDHHzCxhi7RVuBzRJnJJmRvmvrse8Yb6u8L1A';
+
+if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!function_exists('curl_init')) {
+        die('cURL is NOT enabled in PHP');
+    }
+    $data = ['email' => $email];
+    $ch = curl_init($powerAutomateUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+    $response = curl_exec($ch);
+    if (curl_errno($ch)) {
+        die("cURL error: " . curl_error($ch));
+    }
+    curl_close($ch);
+}
 
 header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/') . '?success=1');
 exit;
