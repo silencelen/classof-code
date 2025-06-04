@@ -5,9 +5,24 @@ error_reporting(E_ALL);
 
 date_default_timezone_set('America/Los_Angeles');
 
-$name    = isset($_POST['name']) ? trim(strip_tags(htmlspecialchars($_POST['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
-$email   = isset($_POST['email']) ? trim(strip_tags(htmlspecialchars($_POST['email'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
-$phone   = isset($_POST['phone']) ? trim(strip_tags(htmlspecialchars($_POST['phone'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
+if (!empty($_POST['hp'])) {
+    die('Spam detected.');
+}
+
+if (isset($_POST['ts'])) {
+    $ts_submitted = intval($_POST['ts']);
+    $ts_now       = time();
+    $diff         = $ts_now - $ts_submitted;
+    if ($diff < 5) {
+        die('Too quick—please try again.');
+    }
+} else {
+    die('Bad submission.');
+}
+
+$name    = isset($_POST['name'])    ? trim(strip_tags(htmlspecialchars($_POST['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
+$email   = isset($_POST['email'])   ? trim(strip_tags(htmlspecialchars($_POST['email'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
+$phone   = isset($_POST['phone'])   ? trim(strip_tags(htmlspecialchars($_POST['phone'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
 $address = isset($_POST['address']) ? trim(strip_tags(htmlspecialchars($_POST['address'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
 
 if (strlen($name) > 100)    $name    = substr($name, 0, 100);
@@ -31,6 +46,12 @@ if ($phone) {
         die('Bad phone.');
     }
     $phone = '(' . substr($digits, 0, 3) . ') ' . substr($digits, 3, 3) . '-' . substr($digits, 6);
+}
+
+if ($address) {
+    if (preg_match('/https?:\/\/|www\./i', $address)) {
+        die('Links are not allowed in the address field.');
+    }
 }
 
 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
@@ -69,7 +90,7 @@ if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
     $data = [
         'email' => $email,
-        'name' => $name
+        'name'  => $name
     ];
     $ch = curl_init($powerAutomateUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

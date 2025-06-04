@@ -339,7 +339,7 @@
       <div class="event-card">
         <h3>40 Year Reunion Weekend</h3>
         <p><strong>Date:</strong> September 12th–14th, 2025</p>
-        <p><strong>Location:</strong> TBD </p>
+        <p><strong>Location:</strong> Fri, Sun TBD. Sat at Nardoland </p>
         <p>
           <a href="/40years" class="btn">Learn More & RSVP</a>
         </p>
@@ -350,18 +350,24 @@
     <h2>Stay Connected with Bothell High School Class of 1985</h2>
     <h3>Sign up to receive Alumni updates and event invitations</h3>
     <form id="stay-form" action="submit.php" method="post" autocomplete="off">
+
+      <input type="text" name="hp" id="hp_field" value="" style="position:absolute; left:-9999px; top:-9999px; 
+                opacity:0; height:0; width:0; visibility:hidden;" tabindex="-1" autocomplete="off">
+
+      <input type="hidden" name="ts" value="<?php echo time(); ?>">
+
       <label>Name*:<br>
         <input type="text" name="name" id="stay-name" placeholder="Your first and last name (maiden name)" required
-          maxlength="100">
+          maxlength="50">
       </label>
       <label>Email:<br>
-        <input type="email" name="email" id="stay-email" placeholder="you@example.com" maxlength="320">
+        <input type="email" name="email" id="stay-email" placeholder="you@example.com" maxlength="50">
       </label>
       <label>Phone:<br>
         <input type="tel" name="phone" id="stay-phone" placeholder="(555)-123-4567" maxlength="30">
       </label>
       <label>Mailing Address:<br>
-        <textarea name="address" id="stay-address" placeholder="Street, City, State, ZIP" maxlength="500"></textarea>
+        <textarea name="address" id="stay-address" placeholder="Street, City, State, ZIP" maxlength="150"></textarea>
       </label>
       <button type="submit" class="btn">Submit</button>
     </form>
