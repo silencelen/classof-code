@@ -13,7 +13,7 @@
   <h3 align="center">bhsclassof1985-code</h3>
 
   <p align="center">
-    The offical repo for the active html/css structure of bhsclassof1985.com
+    The offical repo for the active html/php structure of bhsclassof1985.com
     <br />
     <a href="https://github.com/silencelen/bhsclassof1985-code"><strong>Explore the docs »</strong></a>
     <br />
@@ -57,7 +57,7 @@ Distributed under no license, © 2025 BHS Class of 1985 Alumni | Bothell, WA. No
 
 Webmaster - webmaster@bhsclassof1985.com
 
-Alumni inquiries: [@bhsclassof1985m] - contact@bhsclassof1985.com
+Alumni inquiries:- contact@bhsclassof1985.com
 
 [contributors-shield]: https://img.shields.io/github/contributors/silencelen/bhsclassof1985-code.svg?style=for-the-badge
 [contributors-url]: https://github.com/silencelen/bhsclassof1985-code/graphs/contributors
