@@ -354,7 +354,8 @@
       <input type="text" name="hp" id="hp_field" value="" style="position:absolute; left:-9999px; top:-9999px; 
                 opacity:0; height:0; width:0; visibility:hidden;" tabindex="-1" autocomplete="off">
 
-      <input type="hidden" name="ts" value="<?php echo time(); ?>">
+      <input type="text" name="hp" style="display:none;" autocomplete="off">
+      <input type="hidden" name="ts" value="<?= time() ?>">
 
       <label>Name*:<br>
         <input type="text" name="name" id="stay-name" placeholder="Your first and last name (maiden name)" required

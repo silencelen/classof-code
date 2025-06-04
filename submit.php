@@ -11,14 +11,27 @@ if (!empty($_POST['hp'])) {
 
 if (isset($_POST['ts'])) {
     $ts_submitted = intval($_POST['ts']);
-    $ts_now       = time();
-    $diff         = $ts_now - $ts_submitted;
-    if ($diff < 5) {
+    $ts_now = time();
+    if (($ts_now - $ts_submitted) < 5) {
         die('Too quick—please try again.');
     }
 } else {
     die('Bad submission.');
 }
+
+$spam_keywords = ['youtube growth', 'buy subscribers', 'real followers', 'promote channel'];
+foreach ($spam_keywords as $keyword) {
+    if (stripos($_POST['address'] ?? '', $keyword) !== false) {
+        die('Spam content detected.');
+    }
+}
+
+$ip = $_SERVER['REMOTE_ADDR'];
+$rateFile = sys_get_temp_dir() . '/form_rate_' . md5($ip);
+if (file_exists($rateFile) && (time() - filemtime($rateFile)) < 30) {
+    die('Please wait before submitting again.');
+}
+touch($rateFile);
 
 $name    = isset($_POST['name'])    ? trim(strip_tags(htmlspecialchars($_POST['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
 $email   = isset($_POST['email'])   ? trim(strip_tags(htmlspecialchars($_POST['email'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
@@ -34,10 +47,8 @@ if (!$name || (!$email && !$phone && !$address)) {
     die('Missing name or contact info.');
 }
 
-if ($email) {
-    if (!preg_match('/^[^@\s]+@[^@\s\.]+\.[^@\s\.]+$/D', $email)) {
-        die('Bad email.');
-    }
+if ($email && !preg_match('/^[^@\s]+@[^@\s\.]+\.[^@\s\.]+$/D', $email)) {
+    die('Bad email.');
 }
 
 if ($phone) {
@@ -48,18 +59,11 @@ if ($phone) {
     $phone = '(' . substr($digits, 0, 3) . ') ' . substr($digits, 3, 3) . '-' . substr($digits, 6);
 }
 
-if ($address) {
-    if (preg_match('/https?:\/\/|www\./i', $address)) {
-        die('Links are not allowed in the address field.');
-    }
+if ($address && preg_match('/https?:\/\/|www\./i', $address)) {
+    die('Links are not allowed in the address field.');
 }
 
-if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    $submissionsDir = 'C:/secure/submissions/';
-} else {
-    $submissionsDir = '/var/www/submissions/';
-}
-
+$submissionsDir = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? 'C:/secure/submissions/' : '/var/www/submissions/';
 if (!is_dir($submissionsDir)) {
     if (!@mkdir($submissionsDir, 0755, true)) {
         die("Could not create submissions directory");
@@ -88,10 +92,7 @@ if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die('cURL is NOT enabled in PHP');
     }
 
-    $data = [
-        'email' => $email,
-        'name'  => $name
-    ];
+    $data = ['email' => $email, 'name' => $name];
     $ch = curl_init($powerAutomateUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
