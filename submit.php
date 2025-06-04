@@ -1,9 +1,40 @@
+<!--b1.0-->
 <?php
+session_start();
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 date_default_timezone_set('America/Los_Angeles');
+
+$isSecure = false;
+if (
+    (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
+    (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+    (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on')
+) {
+    $isSecure = true;
+}
+
+if (!$isSecure) {
+    $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header('HTTP/1.1 301 Moved Permanently');
+    header('Location: ' . $redirect);
+    exit();
+}
+
+if (!isset($_POST['csrf']) || !isset($_SESSION['csrf']) || !hash_equals($_SESSION['csrf'], $_POST['csrf'])) {
+    die('CSRF token invalid or missing.');
+}
+
+$expectedHost = 'bhsclassof1985.com';
+if (
+    !isset($_SERVER['HTTP_REFERER']) ||
+    parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) !== $expectedHost
+) {
+    die('Invalid referer header.');
+}
 
 if (!empty($_POST['hp'])) {
     die('Spam detected.');
