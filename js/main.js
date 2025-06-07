@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('stay-form')
             .scrollIntoView({ behavior: 'smooth' });
   }
+
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 });
 
 document.getElementById('stay-form').addEventListener('submit', function (e) {

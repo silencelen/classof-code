@@ -176,7 +176,7 @@ if (empty($_SESSION['csrf'])) {
         style="color:#fff; text-decoration:underline;">contact@bhsclassof1985.com</a>
     </p>
     <p style="margin-top:1.5rem;font-size:0.95em;opacity:0.7;">
-      &copy; 2025 BHS Class of 1985 Alumni | Bothell, WA. Not affiliated with Bothell High School or Northshore School
+      &copy; <span id="year"></span> BHS Class of 1985 Alumni | Bothell, WA. Not affiliated with Bothell High School or Northshore School
       District.
     </p>
     <p>
