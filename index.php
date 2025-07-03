@@ -13,24 +13,20 @@ if (empty($_SESSION['csrf'])) {
   <link rel="icon" href="images/iconbig.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BHS Class of 1985 Alumni | Bothell High School Reunion & Events</title>
-  <meta name="description"
-    content="Official BHS Class of 1985 alumni site for Bothell High School—get event details, buy reunion tickets, and connect with classmates.">
-  <meta name="keywords"
-    content="Bothell high school, BHS alumni, BHS Class of 1985, high school reunion, class of 1985, alumni events, Bothell, BHS 1985 reunion">
+  <title>BHS Class of 1985 Alumni | Bothell HS Reunion & Events</title>
+  <meta name="description" content="Official BHS Class of 1985 alumni hub for Bothell High—event info & ticketing.">
+  <meta name="keywords" content="Bothell high school, class of '85, alumni, reunion, events">
   <link rel="canonical" href="https://bhsclassof1985.com/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="BHS Class of 1985 Alumni | Reunion & Events">
-  <meta property="og:description"
-    content="Official alumni hub for Bothell High School Class of 1985—connect, view upcoming reunions, and purchase tickets.">
+  <meta property="og:description" content="Connect with Bothell High School Class of 1985—upcoming reunions & ticket info.">
   <meta property="og:url" content="https://bhsclassof1985.com/">
   <meta property="og:image" content="https://bhsclassof1985.com/assets/og-home.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BHS Class of 1985 Alumni | Reunion & Events">
-  <meta name="twitter:description"
-    content="Official alumni hub for Bothell High School Class of 1985—reunion details, events, and ticketing.">
+  <meta name="twitter:title" content="BHS Class of 1985 Alumni | Events">
+  <meta name="twitter:description" content="Join our 40 Year Reunion Weekend & stay in touch!">
   <meta name="twitter:image" content="https://bhsclassof1985.com/assets/og-home.png">
 
   <script type="application/ld+json">
@@ -39,7 +35,7 @@ if (empty($_SESSION['csrf'])) {
     "@type": "WebSite",
     "url": "https://bhsclassof1985.com/",
     "name": "BHS Class of 1985 Alumni",
-    "description": "Official alumni site for Bothell High School Class of 1985—event info, reunion plans, and ticketing."
+    "description": "Your go-to site for all Class of 1985 happenings, reunions, & events."
   }
   </script>
   <script type="application/ld+json">
@@ -49,12 +45,14 @@ if (empty($_SESSION['csrf'])) {
     "name": "BHS Class of 1985 Alumni",
     "url": "https://bhsclassof1985.com/",
     "logo": "https://bhsclassof1985.com/images/iconbig.ico",
-    "contactPoint": [{
+    "contactPoint": [
+    {
       "@type": "ContactPoint",
       "email": "contact@bhsclassof1985.com",
       "contactType": "Customer Service"
-    }]
-  }
+    }
+  ]
+}
   </script>
   <script type="application/ld+json">
   {
@@ -78,7 +76,7 @@ if (empty($_SESSION['csrf'])) {
       }
     },
     "image": "https://bhsclassof1985.com/assets/og-home.png",
-    "description": "Celebrate 40 years with the Bothell High School Class of 1985! Join us for a weekend of fun, memories, and reconnections.",
+    "description": "Celebrate 40 years with the Bothell HS Class of 1985! Weekend full of memories.",
     "organizer": {
       "@type": "Organization",
       "name": "BHS Class of 1985 Alumni",
@@ -94,12 +92,12 @@ if (empty($_SESSION['csrf'])) {
       <img src="images/iconbig.ico" alt="BHS logo" />
       Bothell High Class of ’85
     </div>
-    <button id="menu-toggle" aria-label="Open navigation menu">&#9776;</button>
+    <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="#events">Upcoming Events</a></li>
-        <li><a href="#Keep-in-Touch">Register</a></li>
+        <li><a href="#sign-up">Register</a></li>
         <li><a href="/40years">40 Years</a></li>
       </ul>
     </nav>
@@ -111,7 +109,7 @@ if (empty($_SESSION['csrf'])) {
       Your official alumni hub. Stay up to date on Bothell High School <strong>reunions</strong>, events, and connect
       with <strong>BHS Class of 1985</strong> classmates.
       <br><br>
-      <a href="#Keep-in-Touch" class="btn">Join Our Alumni List</a>
+      <a href="#sign-up" class="btn">Join Our Alumni List</a>
     </p>
   </section>
 
@@ -120,17 +118,24 @@ if (empty($_SESSION['csrf'])) {
     <div class="card-container">
       <div class="event-card">
         <h3>40 Year Reunion Weekend</h3>
-        <p><strong>Date:</strong> September 12th–14th, 2025</p>
-        <p><strong>Location:</strong> Fri, Sun TBD. Sat at Nardoland </p>
-        <p>
-          <a href="/40years" class="btn">Learn More & RSVP</a>
-        </p>
+        <p><strong>Date:</strong> September 12–14, 2025</p>
+        <p><strong>Location:</strong> Fri/Sun TBD | Sat @ Nardoland</p>
+        <p><a href="/40years" class="btn">Learn More & RSVP</a></p>
       </div>
     </div>
   </section>
-  <section id="Keep-in-Touch">
-    <h2>Stay Connected with Bothell High School Class of 1985</h2>
-    <h3>Sign up to receive Alumni updates and event invitations</h3>
+  <section id="announcement">
+    <center>
+      <h2>Two High Schools. One Epic Class.</h2>
+      </br>
+      <p>Remember "The Great Class Split"? When Woodinville HS opened in Sophomore year we all got shuffled around.</p>
+      <p>Now, 40 years later, we reunite both halves at MERGE NIGHT on Saturday, September 13th!</p>
+      <p>Be there when the Class of '85 becomes whole again.</p>
+    </center>
+  </section>
+  <section id="sign-up">
+    <h2>Stay Connected</h2>
+    <h3>Sign up for alumni news & invites</h3>
     <form id="stay-form" action="submit.php" method="post" autocomplete="off">
 
       <input type="text" name="hp" id="hp_field" value=""
@@ -159,7 +164,7 @@ if (empty($_SESSION['csrf'])) {
   </section>
 
   <section id="archives">
-    <h2>Past Reunions & Alumni Events</h2>
+    <h2>Past Reunions & Events</h2>
     <div class="card-container">
       <div class="archive-card visible">
         <h3>30 Year Reunion</h3>
@@ -168,22 +173,20 @@ if (empty($_SESSION['csrf'])) {
     </div>
   </section>
 
-  <footer id="contact" style="padding:2rem 1rem; text-align:center; background: var(--accent-color); color:#fff;">
+<footer id="contact" style="padding:2rem;text-align:center; background: var(--accent-color); color:#fff;">
     <h2>Contact Us</h2>
-    <p>
-      Questions or want to help plan?
-      Email <a href="mailto:contact@bhsclassof1985.com" target="_blank" rel="noopener noreferrer"
-        style="color:#fff; text-decoration:underline;">contact@bhsclassof1985.com</a>
+    <p>Questions or want to help plan?</p>
+    <p>Email <a href="mailto:contact@bhsclassof1985.com"
+        style="color:#fff; text-decoration:underline;">contact@bhsclassof1985.com</a></p>
+    <p style="margin-top:1rem; font-size:0.9em; opacity:0.7;">
+      &copy; <span id="year"></span> BHS Class of ’85 Alumni | Bothell, WA.
     </p>
-    <p style="margin-top:1.5rem;font-size:0.95em;opacity:0.7;">
-      &copy; <span id="year"></span> BHS Class of 1985 Alumni | Bothell, WA. Not affiliated with Bothell High School or Northshore School
-      District.
-    </p>
-    <p>
-      <a href="/" style="color:#fff; text-decoration:underline;">Back to top</a>
-    </p>
+    <p><a href="/40years" style="color:#fff; text-decoration:underline;">Back to top</a></p>
   </footer>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
