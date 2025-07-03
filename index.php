@@ -112,12 +112,15 @@ if (empty($_SESSION['csrf'])) {
       <a href="#sign-up" class="btn">Join Our Alumni List</a>
     </p>
   </section>
-
+</br>
+  <center>
+    <p><a href="https://whsclassof1985.com" target="blank" style="color:#4e4e4e; text-decoration:underline;">Here from Woodinville HS? Visit your hub</a></p>
+</center>
   <section id="events">
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
       <div class="event-card">
-        <h3>40 Year Reunion Weekend</h3>
+        <h3>40 Year Reunion Weekend w/ Woodinville</h3>
         <p><strong>Date:</strong> September 12–14, 2025</p>
         <p><strong>Location:</strong> Fri/Sun TBD | Sat @ Nardoland</p>
         <p><a href="/40years" class="btn">Learn More & RSVP</a></p>
@@ -128,7 +131,7 @@ if (empty($_SESSION['csrf'])) {
     <center>
       <h2>Two High Schools. One Epic Class.</h2>
       </br>
-      <p>Remember "The Great Class Split"? When Woodinville HS opened in Sophomore year we all got shuffled around.</p>
+      <p>Remember "The Great Class Split" When Woodinville HS opened in Sophomore year we all got shuffled around.</p>
       <p>Now, 40 years later, we reunite both halves at MERGE NIGHT on Saturday, September 13th!</p>
       <p>Be there when the Class of '85 becomes whole again.</p>
     </center>
