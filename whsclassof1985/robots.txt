@@ -1,0 +1,43 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /backup/
+Disallow: /config/
+Allow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+Sitemap: https://WHSclassof1985/sitemap.xml
