@@ -6,29 +6,30 @@
 
 <br />
 <div align="center">
- <a href="https://github.com/silencelen/WHSclassof1985-code">
+ <a href="https://github.com/silencelen/classof-code">
     <img src="images/iconbig.ico" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">WHSclassof1985-code</h3>
+  <h3 align="center">classof-code</h3>
 
   <p align="center">
-    The offical repo for the active html/php structure of WHSclassof1985.com
+    The offical repo for the active html/php structure of classof.com
     <br />
-    <a href="https://github.com/silencelen/WHSclassof1985-code"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/silencelen/classof-code"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://WHSclassof1985.com">View Website</a>
+    <a href="https://classof.com">BHS View Website</a>
+    <a href="https://Whsclassof1985.com">WHS View Website</a>
     ·
-    <a href="https://github.com/silencelen/WHSclassof1985-code/issues">Report Bug</a>
+    <a href="https://github.com/silencelen/classof-code/issues">Report Bug</a>
     ·
-    <a href="https://github.com/silencelen/WHSclassof1985-code/issues">Request Feature</a>
+    <a href="https://github.com/silencelen/classof-code/issues">Request Feature</a>
   </p>
 </div>
 
 ## About The Project
 
-Managing a website comes with its challenges, thats why we've institued the WHSclassof1985.com public repo. In an attempt to streamline progress and collaboration, the complete source structure is online for review.
+Managing a website comes with its challenges, thats why we've institued the classof.com public repo. In an attempt to streamline progress and collaboration, the complete source structure is online for review.
 
 Community review and feedback is heavily encouraged.
 
@@ -47,28 +48,28 @@ Transparency and Security are at upmost importance when dealing with any kind of
 - [ ] Double encrypted form posts for transit
 - [ ] Finish adding 40yr content
 
-See the [open issues](https://github.com/silencelen/WHSclassof1985-code/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/silencelen/classof-code/issues) for a full list of proposed features (and known issues).
 
 ## License
 
-Distributed under no license, © 2025 WHS Class of 1985 Alumni | Woodinville, WA. Not affiliated with Woodinville High School or Northshore School District.
+Distributed under no license, © 2025 BHS Class of 1985 Alumni | Bothell, WA. Not affiliated with Bothell High School or Northshore School District.
 
 ## Contact
 
-Webmaster - webmaster@WHSclassof1985.com
+Webmaster - webmaster@bhsclassof1985.com
 
-Alumni inquiries:- contact@WHSclassof1985.com
+Alumni inquiries:- contact@bhsclassof1985.com
 
-[contributors-shield]: https://img.shields.io/github/contributors/silencelen/WHSclassof1985-code.svg?style=for-the-badge
-[contributors-url]: https://github.com/silencelen/WHSclassof1985-code/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/silencelen/WHSclassof1985-code.svg?style=for-the-badge
-[forks-url]: https://github.com/silencelen/WHSclassof1985-code/network/members
-[stars-shield]: https://img.shields.io/github/stars/silencelen/WHSclassof1985-code.svg?style=for-the-badge
-[stars-url]: https://github.com/silencelen/WHSclassof1985-code/stargazers
-[issues-shield]: https://img.shields.io/github/issues/silencelen/WHSclassof1985-code.svg?style=for-the-badge
-[issues-url]: https://github.com/silencelen/WHSclassof1985-code/issues
-[license-shield]: https://img.shields.io/github/license/silencelen/WHSclassof1985-code.svg?style=for-the-badge
-[license-url]: https://github.com/silencelen/WHSclassof1985-code/blob/main/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/silencelen/classof-code.svg?style=for-the-badge
+[contributors-url]: https://github.com/silencelen/classof-code/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/silencelen/classof-code.svg?style=for-the-badge
+[forks-url]: https://github.com/silencelen/classof-code/network/members
+[stars-shield]: https://img.shields.io/github/stars/silencelen/classof-code.svg?style=for-the-badge
+[stars-url]: https://github.com/silencelen/classof-code/stargazers
+[issues-shield]: https://img.shields.io/github/issues/silencelen/classof-code.svg?style=for-the-badge
+[issues-url]: https://github.com/silencelen/classof-code/issues
+[license-shield]: https://img.shields.io/github/license/silencelen/classof-code.svg?style=for-the-badge
+[license-url]: https://github.com/silencelen/classof-code/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
