@@ -120,7 +120,7 @@ if (empty($_SESSION['csrf'])) {
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
       <div class="event-card">
-        <h3>40 Year Reunion Weekend w/ Woodinville</h3>
+        <h3>40 Year Reunion Weekend w/ Bothell</h3>
         <p><strong>Date:</strong> September 12–14, 2025</p>
         <p><strong>Location:</strong> Fri/Sun TBD | Sat @ Nardoland</p>
         <p><a href="/40years" class="btn">Learn More & RSVP</a></p>
@@ -165,7 +165,7 @@ if (empty($_SESSION['csrf'])) {
     </form>
     <p id="stay-message" style="display:none; margin-top:1rem; color: var(--primary-color); font-weight:bold;"></p>
   </section>
-
+<!--
   <section id="archives">
     <h2>Past Reunions & Events</h2>
     <div class="card-container">
@@ -175,6 +175,7 @@ if (empty($_SESSION['csrf'])) {
       </div>
     </div>
   </section>
+-->
 <script src="/js/main.js"></script>
 
 <footer id="contact" style="padding:2rem;text-align:center; background: var(--accent-color); color:#fff;">

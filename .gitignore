@@ -2,6 +2,11 @@
 # https://help.github.com/articles/ignoring-files
 # Example.gitignore files : https://github.com/github/gitignore
 
-/submissions.lnk
-/web.config
-/php_errors.log
+/bhsclassof1985/web.config
+/whsclassof1985/web.config
+/bhsclassof1985/php_errors.log
+/whsclassof1985/php_errors.log
+bhsclassof1985/php_errors.log
+whsclassof1985/php_errors.log
+bhsclassof1985/web.config
+whsclassof1985/web.config

@@ -104,7 +104,7 @@ if (!is_dir($submissionsDir)) {
 $timestamp = date('Ymd_His');
 $safeName  = preg_replace('/[^A-Za-z0-9]/', '_', $name);
 $safeName  = substr($safeName, 0, 50);
-$filename  = $submissionsDir . "{$safeName}_{$timestamp}.txt";
+$filename  = $submissionsDir . "WHS_{$safeName}_{$timestamp}.txt";
 
 $content  = "Name:    {$name}\n";
 $content .= "Email:   {$email}\n";

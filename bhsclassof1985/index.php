@@ -112,11 +112,10 @@ if (empty($_SESSION['csrf'])) {
       <a href="#sign-up" class="btn">Join Our Alumni List</a>
     </p>
   </section>
-  <!--
 </br>
   <center>
     <p><a href="https://whsclassof1985.com" target="blank" style="color:#4e4e4e; text-decoration:underline;">Here from Woodinville HS? Visit your hub</a></p>
-</center>-->
+  </center>
   <section id="events">
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
