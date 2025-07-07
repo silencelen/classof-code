@@ -1,4 +1,4 @@
-<!--b1.0-->
+﻿<!--b1.0-->
 <?php
 session_start();
 
@@ -44,7 +44,7 @@ if (isset($_POST['ts'])) {
     $ts_submitted = intval($_POST['ts']);
     $ts_now = time();
     if (($ts_now - $ts_submitted) < 5) {
-        die('Too quick—please try again.');
+        die('Too quick-please try again.');
     }
 } else {
     die('Bad submission.');
@@ -116,7 +116,7 @@ if (!file_put_contents($filename, $content)) {
     die("Could not write submission file");
 }
 
-$powerAutomateUrl = getenv('POWER_AUTOMATE_URL');
+$powerAutomateUrl = 'POWER_URL_OBF';
 
 if ($powerAutomateUrl && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {

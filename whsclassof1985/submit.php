@@ -1,4 +1,4 @@
-<!--b1.0-->
+﻿<!--b1.0-->
 <?php
 session_start();
 
@@ -116,7 +116,7 @@ if (!file_put_contents($filename, $content)) {
     die("Could not write submission file");
 }
 
-$powerAutomateUrl = getenv('POWER_AUTOMATE_URL');
+$powerAutomateUrl = 'POWER_URL_OBF';
 
 if ($powerAutomateUrl && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {
