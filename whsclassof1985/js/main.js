@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const msgEl = document.getElementById('stay-message');
   if (params.get('success') === '1') {
-    msgEl.textContent = 'Thank you! Watch your inbox for updates and event details.';
+    msgEl.textContent = 'Registration successful! We will contact you soon. Please check your junk folder if you do not see a confirmation email.';
     msgEl.style.display = 'block';
     document.getElementById('stay-form')
             .scrollIntoView({ behavior: 'smooth' });
