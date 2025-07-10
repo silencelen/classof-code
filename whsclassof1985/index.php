@@ -89,7 +89,8 @@ if (empty($_SESSION['csrf'])) {
 <body>
   <header>
     <div class="logo">
-      <img src="images/fullsize.png" alt="WHS logo" />
+      <a href="https://whsclassof1985.com" rel="noopener">
+      <img src="images/fullsize.png" alt="WHS logo" /></a>
       Woodinville High Class of ’85
     </div>
     <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
