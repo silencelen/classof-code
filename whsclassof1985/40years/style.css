@@ -41,8 +41,7 @@ header {
 
 .logo img {
   height: 36px;
-  width: 36px;
-  border-radius: 50%;
+  width: 50px;
 }
 
 #menu-toggle {
