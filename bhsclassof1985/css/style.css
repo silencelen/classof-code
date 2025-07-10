@@ -181,7 +181,16 @@ section {
 
 @media (max-width: 768px) {
   header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1000;
+  }
+
+  .logo {
+    max-width: 80%;
   }
 
   #menu-toggle {
@@ -191,6 +200,10 @@ section {
     right: 1rem;
     transform: translateY(-50%);
     padding: 0.5rem;
+  }
+
+  body {
+    padding-top: 60px;  /* same as header height */
   }
 
   nav ul {

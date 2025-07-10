@@ -116,7 +116,7 @@ if (!file_put_contents($filename, $content)) {
     die("Could not write submission file");
 }
 
-$powerAutomateUrl = 'https://prod-169.westus.logic.azure.com:443/workflows/2ecf7b7537264329a1e160889e9331aa/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WNMu1gKDHHzCxhi7RVuBzRJnJJmRvmvrse8Yb6u8L1A';
+$powerAutomateUrl = 'POWER_URL_OBF';
 
 if ($powerAutomateUrl && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {

@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-date_default_timezone_set('America/Los_Angeles');
+date_default_timezone_sdwet('America/Los_Angeles');
 
 $isSecure = false;
 if (
@@ -116,7 +116,7 @@ if (!file_put_contents($filename, $content)) {
     die("Could not write submission file");
 }
 
-$powerAutomateUrl = 'https://prod-27.westus.logic.azure.com:443/workflows/13c9e464f9b8428bb3efcac9b7d1ab3b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=VGjMVG-LR0cAjkNkxILMtEG8YHLzy3YtTdUsYTzS7_o';
+$powerAutomateUrl = 'POWER_URL_OBF';
 
 if ($powerAutomateUrl && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {

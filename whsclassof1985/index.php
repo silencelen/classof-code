@@ -22,12 +22,10 @@ if (empty($_SESSION['csrf'])) {
   <meta property="og:title" content="WHS Class of 1985 Alumni | Reunion & Events">
   <meta property="og:description" content="Connect with Woodinville High School Class of 1985—upcoming reunions & ticket info.">
   <meta property="og:url" content="https://WHSclassof1985.com/">
-  <meta property="og:image" content="https://WHSclassof1985.com/assets/og-home.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WHS Class of 1985 Alumni | Events">
   <meta name="twitter:description" content="Join our 40 Year Reunion Weekend & stay in touch!">
-  <meta name="twitter:image" content="https://WHSclassof1985.com/assets/og-home.png">
 
   <script type="application/ld+json">
   {
@@ -116,8 +114,10 @@ if (empty($_SESSION['csrf'])) {
 </br>
   <center>
     <p><a href="https://bhsclassof1985.com" target="blank" style="color:#4e4e4e; text-decoration:underline;">Here from Bothell HS? Visit your hub</a></p>
-</center>
+  </center>
   <section id="events">
+  </br>
+  </br>
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
       <div class="event-card">
@@ -139,6 +139,8 @@ if (empty($_SESSION['csrf'])) {
     </center>
   </section>
   <section id="sign-up">
+  </br>
+  </br>
     <h2>Stay Connected</h2>
     <h3>Sign up for alumni news & invites</h3>
     <form id="stay-form" action="submit.php" method="post" autocomplete="off">
