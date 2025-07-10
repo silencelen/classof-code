@@ -9,7 +9,7 @@ if (empty($_SESSION['csrf'])) {
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/iconbig.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,7 +89,7 @@ if (empty($_SESSION['csrf'])) {
 <body>
   <header>
     <div class="logo">
-      <img src="images/iconbig.ico" alt="WHS logo" />
+      <img src="images/fullsize.png" alt="WHS logo" />
       Woodinville High Class of ’85
     </div>
     <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
@@ -122,7 +122,7 @@ if (empty($_SESSION['csrf'])) {
       <div class="event-card">
         <h3>40 Year Reunion Weekend w/ Bothell</h3>
         <p><strong>Date:</strong> September 12–14, 2025</p>
-        <p><strong>Location:</strong> Fri/Sun TBD | Sat @ Nardoland</p>
+        <p><strong>Location:</strong> Fri/Sun TBD | Sat 6-10pm @ Nardoland</p>
         <p><a href="/40years" class="btn">Learn More & RSVP</a></p>
       </div>
     </div>
@@ -130,9 +130,10 @@ if (empty($_SESSION['csrf'])) {
   <section id="announcement">
     <center>
       <h2>Two High Schools. One Epic Class.</h2>
+      <h3>MERGE WEEKEND from Friday, September 12th to Sunday, September 14th!</h3>
       </br>
-      <p>Remember "The Great Class Split" When Woodinville HS opened in Sophomore year we all got shuffled around.</p>
-      <p>Now, 40 years later, we reunite both halves at MERGE NIGHT on Saturday, September 13th!</p>
+      <p>Remember "The Great Class Split" when Woodinville High School opened Junior year we all got shuffled around?</p>
+      <p>Now, 40 years later, we reunite both halves at our MERGE WEEKEND!</p>
       <p>Be there when the Class of '85 becomes whole again.</p>
     </center>
   </section>
