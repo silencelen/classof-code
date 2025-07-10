@@ -1,8 +1,0 @@
-[20-Jun-2025 16:44:27 UTC] PHP Notice:  session_start(): ps_files_cleanup_dir: opendir(C:\Windows\TEMP) failed: No such file or directory (2) in C:\IIS sites\bhsclassof1985\index.php on line 3
-[02-Jul-2025 07:21:12 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
-[02-Jul-2025 07:21:13 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
-[02-Jul-2025 07:21:13 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
-[02-Jul-2025 07:21:13 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
-[02-Jul-2025 07:21:14 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
-[02-Jul-2025 07:21:15 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
-[02-Jul-2025 07:21:15 UTC] PHP Warning:  Undefined array key "csrf_token" in C:\IIS sites\bhsclassof1985\index.php on line 155
