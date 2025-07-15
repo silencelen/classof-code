@@ -1,4 +1,4 @@
-﻿<!--b1.0-->
+﻿<!--b4-->
 <?php
 session_start();
 
@@ -24,13 +24,16 @@ if (!$isSecure) {
     exit();
 }
 
-if (!isset($_POST['csrf']) || !isset($_SESSION['csrf']) || !hash_equals($_SESSION['csrf'], $_POST['csrf'])) {
+if (
+    !isset($_POST['csrf'], $_SESSION['csrf']) ||
+    !hash_equals($_SESSION['csrf'], $_POST['csrf'])
+) {
     die('CSRF token invalid or missing.');
 }
 
 $expectedHost = 'bhsclassof1985.com';
 if (
-    !isset($_SERVER['HTTP_REFERER']) ||
+    empty($_SERVER['HTTP_REFERER']) ||
     parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) !== $expectedHost
 ) {
     die('Invalid referer header.');
@@ -42,17 +45,18 @@ if (!empty($_POST['hp'])) {
 
 if (isset($_POST['ts'])) {
     $ts_submitted = intval($_POST['ts']);
-    $ts_now = time();
-    if (($ts_now - $ts_submitted) < 5) {
-        die('Too quick-please try again.');
+    if ((time() - $ts_submitted) < 5) {
+        die('Too quick—please try again.');
     }
 } else {
     die('Bad submission.');
 }
 
-$spam_keywords = ['youtube growth', 'buy subscribers', 'real followers', 'promote channel'];
-foreach ($spam_keywords as $keyword) {
-    if (stripos($_POST['address'] ?? '', $keyword) !== false) {
+$spam_keywords = [
+    'youtube growth', 'buy subscribers', 'real followers', 'promote channel'
+];
+foreach ($spam_keywords as $kw) {
+    if (stripos($_POST['address'] ?? '', $kw) !== false) {
         die('Spam content detected.');
     }
 }
@@ -64,21 +68,21 @@ if (file_exists($rateFile) && (time() - filemtime($rateFile)) < 30) {
 }
 touch($rateFile);
 
-$name    = isset($_POST['name'])    ? trim(strip_tags(htmlspecialchars($_POST['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
-$email   = isset($_POST['email'])   ? trim(strip_tags(htmlspecialchars($_POST['email'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
-$phone   = isset($_POST['phone'])   ? trim(strip_tags(htmlspecialchars($_POST['phone'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
-$address = isset($_POST['address']) ? trim(strip_tags(htmlspecialchars($_POST['address'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'))) : '';
+$name    = isset($_POST['name'])    ? trim(htmlspecialchars($_POST['name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) : '';
+$email   = isset($_POST['email'])   ? trim(htmlspecialchars($_POST['email'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) : '';
+$phone   = isset($_POST['phone'])   ? trim(htmlspecialchars($_POST['phone'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) : '';
+$address = isset($_POST['address']) ? trim(htmlspecialchars($_POST['address'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) : '';
 
-if (strlen($name) > 100)    $name    = substr($name, 0, 100);
-if (strlen($email) > 320)   $email   = substr($email, 0, 320);
-if (strlen($phone) > 30)    $phone   = substr($phone, 0, 30);
-if (strlen($address) > 500) $address = substr($address, 0, 500);
+$name    = mb_substr($name,    0, 100);
+$email   = mb_substr($email,   0, 320);
+$phone   = mb_substr($phone,   0, 30);
+$address = mb_substr($address, 0, 500);
 
-if (!$name || (!$email && !$phone && !$address)) {
+if (empty($name) || (empty($email) && empty($phone) && empty($address))) {
     die('Missing name or contact info.');
 }
 
-if ($email && !preg_match('/^[^@\s]+@[^@\s\.]+\.[^@\s\.]+$/D', $email)) {
+if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die('Bad email.');
 }
 
@@ -87,55 +91,61 @@ if ($phone) {
     if (strlen($digits) !== 10) {
         die('Bad phone.');
     }
-    $phone = '(' . substr($digits, 0, 3) . ') ' . substr($digits, 3, 3) . '-' . substr($digits, 6);
+    $phone = sprintf('(%s) %s-%s',
+        substr($digits, 0, 3),
+        substr($digits, 3, 3),
+        substr($digits, 6)
+    );
 }
 
 if ($address && preg_match('/https?:\/\/|www\./i', $address)) {
     die('Links are not allowed in the address field.');
 }
 
-$submissionsDir = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? 'C:/secure/submissions/' : '/var/www/submissions/';
-if (!is_dir($submissionsDir)) {
-    if (!@mkdir($submissionsDir, 0755, true)) {
-        die("Could not create submissions directory");
+$csvFile = __DIR__ . '/BHSSubmissions.csv';
+
+if (!file_exists($csvFile)) {
+    if (false === ($fp = fopen($csvFile, 'w'))) {
+        die('Error: cannot create data file.');
     }
+    fputcsv($fp, ['Name','Email','Phone','Address','Submitted'], ',', '"', '\\');
+    fclose($fp);
 }
 
-$timestamp = date('Ymd_His');
-$safeName  = preg_replace('/[^A-Za-z0-9]/', '_', $name);
-$safeName  = substr($safeName, 0, 50);
-$filename  = $submissionsDir . "BHS_{$safeName}_{$timestamp}.txt";
-
-$content  = "Name:    {$name}\n";
-$content .= "Email:   {$email}\n";
-$content .= "Phone:   {$phone}\n";
-$content .= "Address: {$address}\n";
-$content .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
-
-if (!file_put_contents($filename, $content)) {
-    die("Could not write submission file");
+if (false === ($fp = fopen($csvFile, 'a'))) {
+    die('Error: cannot open data file.');
 }
+$row = [
+    $name,
+    $email,
+    $phone,
+    $address,
+    date('Y-m-d H:i:s')
+];
+fputcsv($fp, $row, ',', '"', '\\');
+fclose($fp);
 
 $powerAutomateUrl = 'POWER_URL_OBF';
-
-if ($powerAutomateUrl && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if (!empty($powerAutomateUrl) && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {
-        die('cURL is NOT enabled in PHP');
+        error_log('cURL not enabled');
+    } else {
+        $data = ['email' => $email, 'name' => $name];
+        $ch   = curl_init($powerAutomateUrl);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST           => true,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+            CURLOPT_POSTFIELDS     => json_encode($data),
+            CURLOPT_TIMEOUT        => 5,
+        ]);
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            error_log('PowerAutomate cURL error: ' . curl_error($ch));
+        }
+        curl_close($ch);
     }
-
-    $data = ['email' => $email, 'name' => $name];
-    $ch = curl_init($powerAutomateUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($ch, CURLOPT_TIMEOUT, 3);
-    $response = curl_exec($ch);
-    if (curl_errno($ch)) {
-        die("cURL error: " . curl_error($ch));
-    }
-    curl_close($ch);
 }
 
 header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/') . '?success=1');
-exit;
+exit();
