@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-date_default_timezone_sdwet('America/Los_Angeles');
+date_default_timezone_set('America/Los_Angeles');
 
 $isSecure = false;
 if (

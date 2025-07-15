@@ -88,7 +88,7 @@ if (empty($_SESSION['csrf'])) {
   <header>
     <div class="logo">
       <a href="https://bhsclassof1985.com" rel="noopener">
-        <img src="images/iconbig.ico" alt="BHS logo" /></a>
+        <img src="images/fullsize.png" alt="BHS logo" /></a>
       Bothell High Class of ’85
     </div>
     <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
