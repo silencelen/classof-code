@@ -102,7 +102,12 @@ if ($address && preg_match('/https?:\/\/|www\./i', $address)) {
     die('Links are not allowed in the address field.');
 }
 
-$csvFile = __DIR__ . '/WHSSubmissions.csv';
+$submissionsDir = 'C:/secured/submissions/';
+if (!is_dir($submissionsDir) && !@mkdir($submissionsDir, 0755, true)) {
+    die('Could not create submissions directory.');
+}
+$csvFile = $submissionsDir . '/WHSSubmissions.csv';
+
 
 if (!file_exists($csvFile)) {
     if (false === ($fp = fopen($csvFile, 'w'))) {
@@ -125,7 +130,7 @@ $row = [
 fputcsv($fp, $row, ',', '"', '\\');
 fclose($fp);
 
-$powerAutomateUrl = 'POWER_URL_OBF';
+$powerAutomateUrl = 'https://prod-27.westus.logic.azure.com:443/workflows/13c9e464f9b8428bb3efcac9b7d1ab3b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=VGjMVG-LR0cAjkNkxILMtEG8YHLzy3YtTdUsYTzS7_o';
 if (!empty($powerAutomateUrl) && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if (!function_exists('curl_init')) {
         error_log('cURL not enabled');
