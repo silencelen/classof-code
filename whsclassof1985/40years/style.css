@@ -44,6 +44,21 @@ header {
   width: 50px;
 }
 
+.nardoland-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;            /* space between images */
+  max-width: 90%; 
+  margin: 0 auto;       /* center if you give it a max-width */
+  box-sizing: border-box;
+}
+
+.nardoland-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 #menu-toggle {
   display: none;
   font-size: 1.5rem;
