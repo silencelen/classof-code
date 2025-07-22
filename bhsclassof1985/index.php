@@ -152,11 +152,11 @@ if (empty($_SESSION['csrf'])) {
       <input type="hidden" name="ts" value="<?= time() ?>">
       <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
 
-      <label>Name*:<br>
+      <label>Name:*<br>
         <input type="text" name="name" id="stay-name" placeholder="Your first and last name (maiden name)" required
           maxlength="50">
       </label>
-      <label>Email:<br>
+      <label>Email:*<br>
         <input type="email" name="email" id="stay-email" placeholder="you@example.com" maxlength="50">
       </label>
       <label>Phone:<br>
