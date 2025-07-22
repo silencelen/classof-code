@@ -73,7 +73,8 @@ nav ul li a:focus {
 }
 
 section {
-  padding: 4rem 1rem;
+  padding: 0rem 3rem;
+  padding-bottom: 5rem;
   max-width: 900px;
   margin: 0 auto;
 }
