@@ -10,7 +10,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 1;
 }
 
 body {
@@ -41,7 +41,22 @@ header {
 
 .logo img {
   height: 36px;
-  width: 36px;
+  width: 50px;
+}
+
+.nardoland-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;            /* space between images */
+  max-width: 90%; 
+  margin: 0 auto;       /* center if you give it a max-width */
+  box-sizing: border-box;
+}
+
+.nardoland-img img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 #menu-toggle {
@@ -189,9 +204,11 @@ section {
     height: 60px;
     z-index: 1000;
   }
-
   .logo {
     max-width: 80%;
+  }
+  body {
+    padding-top: 60px;  /* same as header height */
   }
 
   #menu-toggle {
@@ -201,10 +218,6 @@ section {
     right: 1rem;
     transform: translateY(-50%);
     padding: 0.5rem;
-  }
-
-  body {
-    padding-top: 60px;  /* same as header height */
   }
 
   nav ul {

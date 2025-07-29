@@ -116,8 +116,7 @@ if (empty($_SESSION['csrf'])) {
     <p><a href="https://bhsclassof1985.com" target="blank" style="color:#4e4e4e; text-decoration:underline;">Here from Bothell HS? Visit your hub</a></p>
   </center>
   <section id="events">
-  </br>
-  </br>
+  </br></br></br></br>
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
       <div class="event-card">
@@ -139,8 +138,7 @@ if (empty($_SESSION['csrf'])) {
     </center>
   </section>
   <section id="sign-up">
-  </br>
-  </br>
+  </br></br></br></br>
     <h2>Stay Connected</h2>
     <h3>Sign up for alumni news & invites</h3>
     <form id="stay-form" action="submit.php" method="post" autocomplete="off">

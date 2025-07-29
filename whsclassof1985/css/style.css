@@ -10,7 +10,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 1;
 }
 
 body {
@@ -42,6 +42,21 @@ header {
 .logo img {
   height: 36px;
   width: 50px;
+}
+
+.nardoland-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;            /* space between images */
+  max-width: 90%; 
+  margin: 0 auto;       /* center if you give it a max-width */
+  box-sizing: border-box;
+}
+
+.nardoland-img img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 #menu-toggle {
