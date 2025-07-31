@@ -1,5 +1,9 @@
 document.getElementById('menu-toggle').addEventListener('click', () => {
-  document.querySelector('nav').classList.toggle('open');
+  const nav = document.querySelector('nav');
+  const menuButton = document.getElementById('menu-toggle');
+
+  nav.classList.toggle('open');
+  menuButton.classList.toggle('open');
 });
 
 const observer = new IntersectionObserver(entries => {

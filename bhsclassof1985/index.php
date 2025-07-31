@@ -91,7 +91,7 @@ if (empty($_SESSION['csrf'])) {
         <img src="images/fullsize.png" alt="BHS logo" /></a>
       Bothell High Class of ’85
     </div>
-    <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <button id="menu-toggle" aria-label="Toggle menu"></button>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>

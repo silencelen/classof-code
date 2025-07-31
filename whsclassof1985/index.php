@@ -1,5 +1,4 @@
-﻿<!--b1.0-->
-<?php
+﻿<?php
 session_start();
 if (empty($_SESSION['csrf'])) {
   $_SESSION['csrf'] = bin2hex(random_bytes(32));
@@ -88,10 +87,10 @@ if (empty($_SESSION['csrf'])) {
   <header>
     <div class="logo">
       <a href="https://whsclassof1985.com" rel="noopener">
-      <img src="images/fullsize.png" alt="WHS logo" /></a>
+        <img src="images/fullsize.png" alt="WHS logo" /></a>
       Woodinville High Class of ’85
     </div>
-    <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <button id="menu-toggle" aria-label="Toggle menu"></button>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
@@ -111,12 +110,12 @@ if (empty($_SESSION['csrf'])) {
       <a href="#sign-up" class="btn">Join Our Alumni List</a>
     </p>
   </section>
-</br>
+  </br>
   <center>
     <p><a href="https://bhsclassof1985.com" target="blank" style="color:#4e4e4e; text-decoration:underline;">Here from Bothell HS? Visit your hub</a></p>
   </center>
   <section id="events">
-  </br></br></br></br>
+    </br></br></br></br>
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
       <div class="event-card">
@@ -138,7 +137,7 @@ if (empty($_SESSION['csrf'])) {
     </center>
   </section>
   <section id="sign-up">
-  </br></br></br></br>
+    </br></br></br></br>
     <h2>Stay Connected</h2>
     <h3>Sign up for alumni news & invites</h3>
     <form id="stay-form" action="submit.php" method="post" autocomplete="off">
@@ -180,7 +179,7 @@ if (empty($_SESSION['csrf'])) {
 -->
 <script src="/js/main.js"></script>
 
-<footer id="contact" style="padding:2rem;text-align:center; background: var(--accent-color); color:#fff;">
+  <footer id="contact" style="padding:2rem;text-align:center; background: var(--accent-color); color:#fff;">
     <h2>Contact Us</h2>
     <p>Questions or want to help plan?</p>
     <p>Email <a href="mailto:contact@WHSclassof1985.com"
