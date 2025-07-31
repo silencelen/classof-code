@@ -83,7 +83,6 @@ if (empty($_SESSION['csrf'])) {
   }
   </script>
 </head>
-<script src="/js/main.js"></script>
 <body>
   <header>
     <div class="logo">
@@ -177,6 +176,7 @@ if (empty($_SESSION['csrf'])) {
       </div>
     </div>
   </section>
+<script src="/js/main.js"></script>
 
 <footer id="contact" style="padding:2rem;text-align:center; background: var(--accent-color); color:#fff;">
     <h2>Contact Us</h2>
