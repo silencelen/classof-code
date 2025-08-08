@@ -207,7 +207,7 @@ section {
 
 @media (min-width: 600px) {
   .card-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -269,5 +269,37 @@ section {
 
   nav ul li a:hover {
     background: rgba(255, 255, 255, 0.1);
+  }
+}
+/* Fixed left/right navigation arrows without JavaScript */
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6); /* Changed to black for visibility */
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.nav-arrow.left {
+  left: 1rem;
+}
+
+.nav-arrow.right {
+  right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-arrow {
+    display: none;
   }
 }

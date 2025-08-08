@@ -96,7 +96,7 @@ if (empty($_SESSION['csrf'])) {
         <li><a href="/">Home</a></li>
         <li><a href="#events">Upcoming Events</a></li>
         <li><a href="#sign-up">Register</a></li>
-        <li><a href="/40years">40 Years</a></li>
+        <li><a href="/reunion">Reunion</a></li>
       </ul>
     </nav>
   </header>
@@ -114,15 +114,33 @@ if (empty($_SESSION['csrf'])) {
   <center>
     <p><a href="https://bhsclassof1985.com" target="blank" style="color:#4e4e4e; text-decoration:underline;">Here from Bothell HS? Visit your hub</a></p>
   </center>
-  <section id="events">
-    </br></br></br></br>
+<section id="events">
+  </br></br></br></br>
     <h2>Upcoming Events & Reunions</h2>
     <div class="card-container">
       <div class="event-card">
-        <h3>40 Year Reunion Weekend w/ Bothell</h3>
-        <p><strong>Date:</strong> September 12–14, 2025</p>
-        <p><strong>Location:</strong> Fri/Sun TBD | Sat 6-10pm @ Nardoland</p>
-        <p><a href="/40years" class="btn">Learn More & RSVP</a></p>
+        <h3><a href="/friday">Night at the Lime ></a></h3>
+        <p><strong>Date:</strong></br>
+        September 12th, 2025</p>
+        <p><strong>Location:</strong></br>
+        6pm @ The Lime</p>
+        <!--<p><a href="/40years" class="btn">Learn More</a></p>-->
+      </div>
+      <div class="event-card">
+        <h3><a href="/reunion">40 Year Reunion w/ Woodinville ></a></h3>
+        <p><strong>Date:</strong></br>
+        September 13th, 2025</p>
+        <p><strong>Location:</strong></br>
+        6-10pm @ Nardoland</p>
+        <!--<p><a href="/40years" class="btn">Learn More & RSVP</a></p>-->
+      </div>
+      <div class="event-card">
+        <h3><a href="/sunday">Cottage Lake Hang ></a></h3>
+        <p><strong>Date:</strong></br>
+        September 14th, 2025</p>
+        <p><strong>Location:</strong></br>
+        2pm @ Cottage Lake</p>
+        <!--<p><a href="/40years" class="btn">Learn More</a></p>-->
       </div>
     </div>
   </section>
