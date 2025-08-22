@@ -107,7 +107,7 @@ if (empty($_SESSION['csrf'])) {
       Your official alumni hub. Stay up to date on Woodinville High School <strong>reunions</strong>, events, and connect
       with <strong>WHS Class of 1985</strong> classmates.
       <br><br>
-      <a href="#sign-up" class="btn">Join Our Alumni List</a>
+      <a href="#sign-up" class="btn">Join Our Alumni List</a>---<a href="/reunion" class="btn">Buy Reunion Ticket</a>
     </p>
   </section>
   </br>
@@ -135,7 +135,7 @@ if (empty($_SESSION['csrf'])) {
         <!--<p><a href="/40years" class="btn">Learn More & RSVP</a></p>-->
       </div>
       <div class="event-card">
-        <h3><a href="/sunday">Cottage Lake Hang ></a></h3>
+        <h3><a href="/sunday">Sunday Hang ></a></h3>
         <p><strong>Date:</strong></br>
         September 14th, 2025</p>
         <p><strong>Location:</strong></br>
@@ -143,6 +143,9 @@ if (empty($_SESSION['csrf'])) {
         <!--<p><a href="/40years" class="btn">Learn More</a></p>-->
       </div>
     </div>
+    </br><center>
+    Ready for the reunion? Visit the Reunion tab to purchase your tickets and secure your spot. We can't wait to see you!
+</center>
   </section>
   <section id="announcement">
     <center>
